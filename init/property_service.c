@@ -160,9 +160,20 @@ out:
 /* 1024 bytes header and toc + 247 prop_infos @ 128 bytes = 32640 bytes */
 /* Previous values 247, 1024, 32768.  This wasnt enough for mecha */
 
+#ifdef BOARD_HAS_EXTRA_SYS_PROPS
+/* This is for boards that have an excessive number of system props set. */
+
 #define PA_COUNT_MAX  494
 #define PA_INFO_START 2048
 #define PA_SIZE       65536
+
+#else
+
+#define PA_COUNT_MAX  247
+#define PA_INFO_START 1024
+#define PA_SIZE       32768
+
+#endif
 
 static workspace pa_workspace;
 static prop_info *pa_info_array;
