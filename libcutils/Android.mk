@@ -110,7 +110,7 @@ else #!sim
 
 targetSources := ashmem-dev.c mq.c
 ifeq ($(TARGET_ARCH),arm)
-LOCAL_SRC_FILES += arch-arm/memset32.S
+targetSources += arch-arm/memset32.S
 else  # !arm
 ifeq ($(TARGET_ARCH),sh)
 targetSources += memory.c atomic-android-sh.c
